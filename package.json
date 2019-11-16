@@ -1,0 +1,20 @@
+{
+  "name": "stackathon",
+  "version": "0.0.1",
+  "description": "An Elm project",
+  "main": "main.js",
+  "scripts": {
+    "start-server": "nodemon --watch server main.js -e html,js,css",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "express": "^4.14.0",
+    "pg": "^7.4.3",
+    "sequelize": "^4.37.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "volleyball": "^1.5.1"
+  }
+}
