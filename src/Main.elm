@@ -91,7 +91,16 @@ viewCards cards =
     div [ class "card-container" ]
         [ h3 [] [ text "Cards" ]
         , table [ class "card-table" ]
-            (List.map viewCard cards)
+            (List.map hiddenCard cards)
+        ]
+
+
+hiddenCard : Card -> Html Msg
+hiddenCard card =
+    tr [ class "individual-card" ]
+        [ h1 [ class "card-name" ] [ text card.name ]
+        , img [ src card.imageUrl ] []
+        , h3 [ class "meaning" ] [ text card.meaning_up ]
         ]
 
 
