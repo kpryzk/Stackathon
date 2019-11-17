@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Main</title>
-	<style>body { padding: 0; margin: 0; }</style>
-	<link rel="stylesheet" href="style.css">
+	<title>Main</title>
+	<link rel="stylesheet" href="/style.css" />
+  <style>body { padding: 0; margin: 0; }</style>
 </head>
 
 <body>
@@ -6212,12 +6212,18 @@ var $elm$html$Html$tr = _VirtualDom_node('tr');
 var $author$project$Main$viewCard = function (card) {
 	return A2(
 		$elm$html$Html$tr,
-		_List_Nil,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('individual-card')
+			]),
 		_List_fromArray(
 			[
 				A2(
 				$elm$html$Html$h1,
-				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('card-name')
+					]),
 				_List_fromArray(
 					[
 						$elm$html$Html$text(card.name)
@@ -6231,7 +6237,10 @@ var $author$project$Main$viewCard = function (card) {
 				_List_Nil),
 				A2(
 				$elm$html$Html$h3,
-				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('meaning')
+					]),
 				_List_fromArray(
 					[
 						$elm$html$Html$text(card.meaning_up)
@@ -6256,7 +6265,10 @@ var $author$project$Main$viewCards = function (cards) {
 					])),
 				A2(
 				$elm$html$Html$table,
-				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('card-table')
+					]),
 				A2($elm$core$List$map, $author$project$Main$viewCard, cards))
 			]));
 };
@@ -6289,24 +6301,51 @@ var $author$project$Main$view = function (model) {
 			[
 				$author$project$Main$viewCardsOrError(model),
 				A2(
-				$elm$html$Html$button,
+				$elm$html$Html$div,
 				_List_fromArray(
 					[
-						$elm$html$Html$Events$onClick($author$project$Main$DrawThree)
+						$elm$html$Html$Attributes$class('button-container')
 					]),
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Draw Three')
-					])),
-				A2(
-				$elm$html$Html$button,
-				_List_fromArray(
-					[
-						$elm$html$Html$Events$onClick($author$project$Main$DrawOne)
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Draw One')
+						A2(
+						$elm$html$Html$div,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('draw-three button')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$button,
+								_List_fromArray(
+									[
+										$elm$html$Html$Events$onClick($author$project$Main$DrawThree)
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Draw Three')
+									]))
+							])),
+						A2(
+						$elm$html$Html$div,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('draw-one button')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$button,
+								_List_fromArray(
+									[
+										$elm$html$Html$Events$onClick($author$project$Main$DrawOne)
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Draw One')
+									]))
+							]))
 					]))
 			]));
 };

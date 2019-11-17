@@ -4,9 +4,7 @@
   "description": "An Elm project",
   "main": "main.js",
   "scripts": {
-    "start:dev": "npm run build-watch & npm run start-server",
     "start-server": "nodemon --watch server main.js -e html,js,css",
-    "build-watch": "webpack -w",
     "seed": "node seed.js"
   },
   "dependencies": {
