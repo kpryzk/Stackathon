@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
 router.get('/randomCard', async (req, res, next) => {
   try {
 
-    const card = await Tarot.findOne({limit: 1, order: [[Sequelize.fn('RANDOM')]]})
+    const card = await Tarot.findAll({limit: 1, order: [[Sequelize.fn('RANDOM')]]})
     res.json(card)
   } catch (error) {
     next(error)
