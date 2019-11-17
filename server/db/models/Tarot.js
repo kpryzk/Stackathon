@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../database')
 
-module.exports = db.define('tarot', {
+const Tarot = db.define('tarot', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -47,3 +47,5 @@ module.exports = db.define('tarot', {
     defaultValue: 'http://www.aeclectic.net/tarot/cards/_img/madame-endora-08642.jpg'
   }
 })
+
+module.exports = Tarot
