@@ -846,13 +846,9 @@ const tarot = [
 
 const user = [
   {
-    id: 109,
-    firstName: 'Yayoi',
-    lastName: 'Kusama',
-    email: 'yayoi@gmail.com',
+    email: 'kpryszlak@gmail.com',
     imageUrl:
       'https://artlogic-res.cloudinary.com/w_2400,h_1800,c_limit,f_auto,fl_lossy,q_auto:good/ws-unitlondon3/usr/images/blog_entries/hero_image/67/kusama-yayoi-_louis-vuitton-shop-window-display-with-tentacles_2012-2015_1500x1386.jpg',
-    gpa: '4',
   }
 ]
 

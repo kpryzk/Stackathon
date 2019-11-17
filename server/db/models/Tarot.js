@@ -9,11 +9,6 @@ const Tarot = db.define('tarot', {
       notEmpty: true,
     },
   },
-  // imageUrl: {
-  //   type: Sequelize.STRING,
-  //   defaultValue:
-  //     'https://live.staticflickr.com/8752/17121964950_cf8ec1d25d_b.jpg',
-  // },
   name_short: {
     type: Sequelize.STRING,
     allowNull: false,
