@@ -54,16 +54,17 @@ type alias Model =
 view : Model -> Html Msg
 view model =
     div [ class "app-container" ]
-        [ viewCardsOrError model
+         text "My, what a spooky, esoteric app. Almost as esoteric as Elm, the functional programming language in which it was built. Draw a card - find your fate - or draw three! They could represent past, present, and future... or perhaps just your inherent indecison. Your fate is in the stars... or the SQL randomize function."
+        , viewCardsOrError model
         , div [ class "button-container" ]
-            [ div [ class "draw-three button" ]
+            [ div [ class "draw-one button" ]
                 [ button
-                    [ onClick DrawThree ]
-                    [ text "Draw Three" ]
+                    [ onClick DrawOne ]
+                    [ text "DRAW ONE" ]
                 ]
-            , div [ class "draw-one button" ]
-                [ button [ onClick DrawOne ]
-                    [ text "Draw One" ]
+            , div [ class "draw-three button" ]
+                [ button [ onClick DrawThree ]
+                    [ text "DRAW THREE" ]
                 ]
             ]
         ]
@@ -89,26 +90,16 @@ viewError errorMessage =
 viewCards : List Card -> Html Msg
 viewCards cards =
     div [ class "card-container" ]
-        [ h3 [] [ text "Cards" ]
-        , table [ class "card-table" ]
-            (List.map hiddenCard cards)
+        [ table [ class "card-table" ]
+            (List.indexedMap viewCard cards)
         ]
 
 
-hiddenCard : Card -> Html Msg
-hiddenCard card =
-    tr [ class "individual-card" ]
-        [ h1 [ class "card-name" ] [ text card.name ]
-        , img [ src card.imageUrl ] []
-        , h3 [ class "meaning" ] [ text card.meaning_up ]
-        ]
-
-
-viewCard : Card -> Html Msg
-viewCard card =
-    tr [ class "individual-card" ]
-        [ h1 [ class "card-name" ] [ text card.name ]
-        , img [ src card.imageUrl ] []
+viewCard : Int -> Card -> Html Msg
+viewCard idx card =
+    tr [ class ("individual-card-" ++ String.fromInt idx) ]
+        [ img [ src card.imageUrl ] []
+        , h1 [ class "card-name" ] [ text card.name ]
         , h3 [ class "meaning" ] [ text card.meaning_up ]
         ]
 
