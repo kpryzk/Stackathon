@@ -155,26 +155,26 @@ update msg model =
 
         DataReceived (Err httpError) ->
             ( { model
-                | errorMessage = Just (buildErrorMessage httpError)
+                | errorMessage = Just (possibleErrors httpError)
               }
             , Cmd.none
             )
 
 
-buildErrorMessage : Http.Error -> String
-buildErrorMessage httpError =
+possibleErrors : Http.Error -> String
+possibleErrors httpError =
     case httpError of
         Http.BadUrl message ->
             message
 
         Http.Timeout ->
-            "Server is taking too long to respond. Please try again later."
+            "Timeout error!"
 
         Http.NetworkError ->
-            "Unable to reach server."
+            "Server unavailable!"
 
         Http.BadStatus statusCode ->
-            "Request failed with status code: " ++ String.fromInt statusCode
+            String.fromInt statusCode
 
         Http.BadBody message ->
             message
